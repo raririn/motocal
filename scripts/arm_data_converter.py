@@ -854,6 +854,8 @@ def processCSVdata(csv_file_name, json_data, image_url_list, PROCESS_TYPE_SSR = 
             name = row[2].replace("&br;", "")
             name = name.replace("[]", "")
             newdict["ja"] = name
+            # let zh name be the same as ja
+            newdict["zh"] = name
 
             # element
             if row[3].find("火") > 0:

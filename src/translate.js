@@ -1314,7 +1314,7 @@ var multiLangData = {
     "キャラテンプレート": {
         "en": "Open Character Template",
         "ja": "キャラテンプレートを開く",
-        "zh": "打开角色列表。",
+        "zh": "打开角色列表",
 	},
     "キャラ名": {
         "en": "Name",

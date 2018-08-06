@@ -144,6 +144,17 @@ def get_value(value_str):
         print("matched: error")
         return "error"
 
+def process2zhname(name):
+    ''' Return a zh-cn name of given name(string). The transformation is done as following:
+        バレンタイン -> 情人节
+        リミテッド -> 限定
+        クリスマス -> 圣诞
+        ハロウイン -> 万圣
+        サマー -> 夏季
+        バニー -> 兔耳
+    '''
+    return name.replace('バレンタイン', '情人节').replace('リミテッド', '限定').replace('クリスマス', '圣诞').replace('ハロウイン', '万圣').replace('サマー', '夏季').replace('バニー', '兔耳')
+
 def processCSVdata(csv_file_name, json_data, image_url_list):
     key_pattern = re.compile("(\d+_\d+\.png)")
     br_pattern = re.compile("(\w+)&br;(\w+)")
@@ -170,6 +181,8 @@ def processCSVdata(csv_file_name, json_data, image_url_list):
 
             newdict["name"] = name
             newdict["ja"] = name
+            # let zh name be the same as ja
+            newdict["zh"] = process2zhname(name)
 
             # element
             if row[3].find("火") > 0:
